@@ -26,7 +26,7 @@ public class GenerateParameterYmlLoader implements YmlLoader<Step> {
         if(generatorObj instanceof String) {
             generator = valueGenerator(stringify(generatorObj));
         } else {
-            Yaml generatorYaml = new Yaml((Map) generatorObj);
+            Yaml generatorYaml = new Yaml((Map<?, ?>) generatorObj);
             generator = generatorLoaderUtil.deriveLoader(generatorYaml).load(generatorYaml, allIds);
         }
 

@@ -26,7 +26,7 @@ public class BuildParameterYmlLoader implements YmlLoader<Step> {
         if(builderObj instanceof String) {
             builder = valueBuilder((String) builderObj);
         } else {
-            Yaml builderYaml = new Yaml((Map) builderObj);
+            Yaml builderYaml = new Yaml((Map<?, ?>) builderObj);
             builder = builderLoaderUtil.deriveLoader(builderYaml).load(builderYaml, allIds);
         }
 

@@ -34,7 +34,7 @@ public class DecisionYmlLoader implements YmlLoader<Step> {
         } else if (behaviourObj instanceof String) {
             behaviour = rulesBehaviour(stringify(behaviourObj));
         } else {
-            Yaml behaviourYaml = new Yaml((Map) behaviourObj);
+            Yaml behaviourYaml = new Yaml((Map<?, ?>) behaviourObj);
             behaviour = rulesBehaviourLoaderUtil.deriveLoader(behaviourYaml).load(behaviourYaml, allIds);
         }
 

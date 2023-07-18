@@ -7,7 +7,7 @@ package com.emarte.regurgitator.core;
 import static com.emarte.regurgitator.core.StringUtil.dashesToCamelCase;
 import static com.emarte.regurgitator.core.YmlPackageLookup.getPackageForType;
 
-public class YmlLoaderUtil<TYPE extends Loader> extends LoaderUtil<Yaml, TYPE> {
+public class YmlLoaderUtil<TYPE extends Loader<?, ?>> extends LoaderUtil<Yaml, TYPE> {
 
     @Override
     public TYPE deriveLoader(Yaml yaml) throws RegurgitatorException {

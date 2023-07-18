@@ -19,7 +19,7 @@ class YmlConfigurationLoader implements ConfigurationLoader {
         YamlReader reader = new YamlReader(new InputStreamReader(input));
 
         try {
-            Yaml yaml = new Yaml((Map) reader.read());
+            Yaml yaml = new Yaml((Map<?, ?>) reader.read());
             return loaderUtil.deriveLoader(yaml).load(yaml, new HashSet<Object>());
         } catch (Exception e) {
             throw new RegurgitatorException("Error loading regurgitator configuration", e);

@@ -23,7 +23,7 @@ class ConditionYmlLoader {
         String source = loadMandatoryStr(yaml, SOURCE);
         String expectation = loadOptionalStr(yaml, EXPECTATION);
 
-        Entry behaviourAttr = getBehaviourAttribute(yaml);
+        Entry<?, ?> behaviourAttr = getBehaviourAttribute(yaml);
         ConditionBehaviour behaviour;
         String value;
 
@@ -37,23 +37,23 @@ class ConditionYmlLoader {
             if(object instanceof String) {
                 behaviour = conditionBehaviour((String) object);
             } else {
-                Yaml behaviourYaml = new Yaml((Map) object);
+                Yaml behaviourYaml = new Yaml((Map<?, ?>) object);
                 behaviour = conditionBehaviourLoaderUtil.deriveLoader(behaviourYaml).load(behaviourYaml, allIds);
             }
         }
 
         String id = loadId(yaml, CONDITION, allIds);
         log.debug("Loaded condition '{}'", id);
-        return new Condition(id, new ContextLocation(source), value, expectation != null ? Boolean.valueOf(expectation) : true, behaviour);
+        return new Condition(id, new ContextLocation(source), value, expectation == null || Boolean.parseBoolean(expectation), behaviour);
     }
 
     @SuppressWarnings("unchecked")
-    private static Entry getBehaviourAttribute(Yaml yaml) throws RegurgitatorException {
+    private static Entry<?, ?> getBehaviourAttribute(Yaml yaml) throws RegurgitatorException {
         boolean behaviourFieldFound = yaml.contains(BEHAVIOUR);
-        Set<Entry> entries = yaml.getValueMap().entrySet();
-        Set<Entry> behavioursFound = new HashSet<Entry>();
+        Set<Entry<?, ?>> entries = yaml.getValueMap().entrySet();
+        Set<Entry<?, ?>> behavioursFound = new HashSet<Entry<?, ?>>();
 
-        for(Entry entry: entries) {
+        for(Entry<?, ?> entry: entries) {
             if(entry.getValue() instanceof String) {
                 if(hasConditionBehaviour((String)entry.getKey())) {
                     behavioursFound.add(entry);
