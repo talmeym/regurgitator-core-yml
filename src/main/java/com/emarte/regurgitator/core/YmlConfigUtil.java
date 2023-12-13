@@ -13,7 +13,7 @@ import static com.emarte.regurgitator.core.EntityLookup.parameterType;
 import static com.emarte.regurgitator.core.EntityLookup.valueProcessor;
 
 public class YmlConfigUtil {
-    private static final YmlLoaderUtil<YmlLoader<ValueProcessor>> processorLoaderUtil = new YmlLoaderUtil<YmlLoader<ValueProcessor>>();
+    private static final YmlLoaderUtil<YmlLoader<ValueProcessor>> processorLoaderUtil = new YmlLoaderUtil<>();
     private static final Random RANDOM = new Random();
 
     public static String loadId(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
@@ -45,7 +45,7 @@ public class YmlConfigUtil {
     }
 
     public static boolean loadOptionalBool(Yaml yaml, String key) {
-        return yaml.contains(key) && ((String)yaml.get(key)).toLowerCase().equals("true");
+        return yaml.contains(key) && ((String)yaml.get(key)).equalsIgnoreCase("true");
     }
 
     public static Object loadMandatory(Yaml yaml, String key) throws RegurgitatorException {
@@ -59,7 +59,7 @@ public class YmlConfigUtil {
     public static List<ValueProcessor> loadMandatoryValueProcessors(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
         List<ValueProcessor> processors = loadOptionalValueProcessors(yaml, allIds);
 
-        if(processors != null && processors.size() > 0) {
+        if(processors.size() > 0) {
             return processors;
         }
 
@@ -67,7 +67,7 @@ public class YmlConfigUtil {
     }
 
     public static List<ValueProcessor> loadOptionalValueProcessors(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
-        List<ValueProcessor> processors = new ArrayList<ValueProcessor>();
+        List<ValueProcessor> processors = new ArrayList<>();
         Object processorObj = yaml.get(PROCESSOR);
         Object processorsObj = yaml.get(PROCESSORS);
 
@@ -79,7 +79,7 @@ public class YmlConfigUtil {
             if(processorObj instanceof String) {
                 processors.add(valueProcessor((String) processorObj));
             } else if(processorObj instanceof Map) {
-                Yaml processor = new Yaml((Map) processorObj);
+                Yaml processor = new Yaml((Map<?, ?>) processorObj);
                 processors.add(processorLoaderUtil.deriveLoader(processor).load(processor, allIds));
             } else {
                 throw new RegurgitatorException("'processor' should be a string or an object or, for an array, replaced with 'processors'");
@@ -92,8 +92,8 @@ public class YmlConfigUtil {
                     processors.add(valueProcessor(part));
                 }
             } else if (processorsObj instanceof List) {
-                for (Object object : (List) processorsObj) {
-                    Yaml processor = new Yaml((Map) object);
+                for (Object object : (List<?>) processorsObj) {
+                    Yaml processor = new Yaml((Map<?, ?>) object);
                     processors.add(processorLoaderUtil.deriveLoader(processor).load(processor, allIds));
                 }
             } else {
@@ -120,7 +120,7 @@ public class YmlConfigUtil {
         throw new RegurgitatorException("Yml missing mandatory element: " + key);
     }
 
-    private static ParameterType loadType(Yaml yaml) throws RegurgitatorException {
+    private static ParameterType<?> loadType(Yaml yaml) throws RegurgitatorException {
         return yaml.contains(TYPE) ? parameterType((String) yaml.get(TYPE)) : STRING;
     }
 

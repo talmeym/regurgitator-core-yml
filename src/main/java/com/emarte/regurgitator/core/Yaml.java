@@ -15,7 +15,7 @@ public class Yaml {
 
     public Yaml(Map<?, ?> map) {
         type = (String) map.keySet().iterator().next();
-        values = map.get(type) instanceof Map ? unmodifiableMap((Map<?, ?>) map.get(type)) : new HashMap();
+        values = map.get(type) instanceof Map ? unmodifiableMap((Map<?, ?>) map.get(type)) : new HashMap<>();
     }
 
     public Yaml(String type, Map<?, ?> values) {

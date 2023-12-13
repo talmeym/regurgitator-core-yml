@@ -15,7 +15,7 @@ public class IndexOfProcessorYmlLoader implements YmlLoader<IndexOfProcessor> {
     private static final Log log = getLog(IndexOfProcessorYmlLoader.class);
 
     @Override
-    public IndexOfProcessor load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
+    public IndexOfProcessor load(Yaml yaml, Set<Object> allIds) {
         String source = loadOptionalStr(yaml, SOURCE);
         String value = loadOptionalStr(yaml, VALUE);
         boolean backwards = loadOptionalBool(yaml, LAST);

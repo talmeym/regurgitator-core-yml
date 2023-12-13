@@ -18,7 +18,7 @@ class RuleYmlLoader {
     private static final Log log = getLog(RuleYmlLoader.class);
 
     static Rule loadRule(Yaml yaml, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
-        List<Condition> conditions = new ArrayList<Condition>();
+        List<Condition> conditions = new ArrayList<>();
         List<?> conditionYamls = (List<?>) yaml.get(CONDITIONS);
 
         if(conditionYamls != null) {

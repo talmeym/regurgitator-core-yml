@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 class YmlConfigurationLoader implements ConfigurationLoader {
-    private static final YmlLoaderUtil<YmlLoader<Step>> loaderUtil = new YmlLoaderUtil<YmlLoader<Step>>();
+    private static final YmlLoaderUtil<YmlLoader<Step>> loaderUtil = new YmlLoaderUtil<>();
 
     @Override
     public Step load(InputStream input) throws RegurgitatorException {
@@ -20,7 +20,7 @@ class YmlConfigurationLoader implements ConfigurationLoader {
 
         try {
             Yaml yaml = new Yaml((Map<?, ?>) reader.read());
-            return loaderUtil.deriveLoader(yaml).load(yaml, new HashSet<Object>());
+            return loaderUtil.deriveLoader(yaml).load(yaml, new HashSet<>());
         } catch (Exception e) {
             throw new RegurgitatorException("Error loading regurgitator configuration", e);
         }
