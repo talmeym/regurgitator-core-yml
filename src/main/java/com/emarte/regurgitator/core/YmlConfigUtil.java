@@ -17,7 +17,7 @@ public class YmlConfigUtil {
     private static final Random RANDOM = new Random();
 
     public static String loadId(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
-        String id = yaml.contains(ID) ? (String) yaml.get(ID) : yaml.getType() + "-" + new Random().nextInt(100000);
+        String id = yaml.contains(ID) ? (String) yaml.get(ID) : yaml.getKind() + "-" + new Random().nextInt(100000);
 
         if (!allIds.add(id)) {
             throw new RegurgitatorException("Duplicate id: " + id);

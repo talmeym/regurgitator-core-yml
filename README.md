@@ -254,10 +254,14 @@ a create-response returns a response back from regurgitator via a message's ``re
 ```yml
 create-response:
  source: parameters:response-text
+```
 
+```yml
 create-response:
  value: <xml>this is the response</xml>
+```
 
+```yml
 create-response:
  file: classpath:/canned_response.xml
 ```
@@ -280,7 +284,9 @@ having identified your session, you can store and retrieve parameters from the s
 create-parameter:
  name: session:stored-value
  value: store this
+```
 
+```yml
 create-parameter:
  name: local-parameter
  source: session:stored-value
@@ -368,7 +374,9 @@ generate-parameter:
  type: STRING
  generator:
   uuid-generator:
+```
 
+```yml
 generate-parameter:
  name: new-id
  type: STRING
@@ -418,7 +426,9 @@ create-parameter:
  name: data
  type: LIST_OF_STRING
  value: not this one,or this one,but this one
+```
 
+```yml
 create-parameter:
  name: the-one
  type: STRING
@@ -441,7 +451,9 @@ create-parameter:
  name: data
  type: LIST_OF_STRING
  value: not this one,or this one,but this one
+```
 
+```yml
 create-parameter:
  name: index-of-the-one
  type: NUMBER
@@ -464,7 +476,9 @@ create-parameter:
  name: data
  type: LIST_OF_STRING
  value: one,two,three,four
+```
 
+```yml
 create-parameter:
  name: data-size
  type: NUMBER
@@ -479,7 +493,9 @@ create-parameter:
  name: data
  type: LIST_OF_STRING
  value: one,two,three,four
+```
 
+```yml
 create-parameter:
  name: four
  type: NUMBER

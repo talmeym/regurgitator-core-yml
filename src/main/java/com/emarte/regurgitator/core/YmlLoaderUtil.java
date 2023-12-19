@@ -5,7 +5,7 @@
 package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.StringUtil.dashesToCamelCase;
-import static com.emarte.regurgitator.core.YmlPackageLookup.getPackageForType;
+import static com.emarte.regurgitator.core.YmlPackageLookup.getPackageForKind;
 
 public class YmlLoaderUtil<TYPE extends Loader<?, ?>> extends LoaderUtil<Yaml, TYPE> {
 
@@ -16,8 +16,8 @@ public class YmlLoaderUtil<TYPE extends Loader<?, ?>> extends LoaderUtil<Yaml, T
 
     @Override
     String deriveClass(Yaml yaml) throws RegurgitatorException {
-        String type = yaml.getType();
-        return deriveClass(getPackageForType(type), dashesToCamelCase(type));
+        String kind = yaml.getKind();
+        return deriveClass(getPackageForKind(kind), dashesToCamelCase(kind));
     }
 
     @Override
