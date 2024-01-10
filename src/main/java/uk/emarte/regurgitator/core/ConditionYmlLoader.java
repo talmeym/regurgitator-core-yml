@@ -8,11 +8,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static java.util.Map.Entry;
 import static uk.emarte.regurgitator.core.CoreConfigConstants.*;
 import static uk.emarte.regurgitator.core.EntityLookup.conditionBehaviour;
 import static uk.emarte.regurgitator.core.EntityLookup.hasConditionBehaviour;
 import static uk.emarte.regurgitator.core.Log.getLog;
-import static java.util.Map.Entry;
 import static uk.emarte.regurgitator.core.YmlConfigUtil.*;
 
 class ConditionYmlLoader {

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import static uk.emarte.regurgitator.core.Log.getLog;
-import static uk.emarte.regurgitator.core.YmlConfigUtil.*;
+import static uk.emarte.regurgitator.core.YmlConfigUtil.loadMandatoryValueProcessors;
 
 public class ListProcessorYmlLoader implements YmlLoader<ListProcessor> {
     private static final Log log = getLog(ListProcessorYmlLoader.class);
