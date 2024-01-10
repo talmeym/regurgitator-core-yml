@@ -33,6 +33,6 @@ public class BuildParameterYmlLoader implements YmlLoader<Step> {
 
         String id = loadId(yaml, allIds);
         log.debug("Loaded build parameter '{}'", id);
-        return new BuildParameter(id, YmlConfigUtil.loadPrototype(yaml), YmlConfigUtil.loadContext(yaml), builder, processors);
+        return new BuildParameter(id, loadPrototype(yaml), loadContext(yaml), builder, processors);
     }
 }
