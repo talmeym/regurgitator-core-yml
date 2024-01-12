@@ -10,21 +10,21 @@ import java.util.Map;
 import static java.util.Collections.unmodifiableMap;
 
 public class Yaml {
-    private final String type;
+    private final String kind;
     private final Map<?, ?> values;
 
     public Yaml(Map<?, ?> map) {
-        type = (String) map.keySet().iterator().next();
-        values = map.get(type) instanceof Map ? unmodifiableMap((Map<?, ?>) map.get(type)) : new HashMap();
+        kind = (String) map.keySet().iterator().next();
+        values = map.get(kind) instanceof Map ? unmodifiableMap((Map<?, ?>) map.get(kind)) : new HashMap<>();
     }
 
-    public Yaml(String type, Map<?, ?> values) {
-        this.type = type;
+    public Yaml(String kind, Map<?, ?> values) {
+        this.kind = kind;
         this.values = values;
     }
 
-    public String getType() {
-        return type;
+    public String getKind() {
+        return kind;
     }
 
     public Map getValueMap() {

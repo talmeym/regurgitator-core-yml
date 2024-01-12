@@ -16,8 +16,8 @@ import static uk.emarte.regurgitator.core.YmlConfigUtil.*;
 public class DecisionYmlLoader implements YmlLoader<Step> {
     private static final Log log = getLog(DecisionYmlLoader.class);
 
-    private static final YmlLoaderUtil<YmlLoader<Step>> stepLoaderUtil = new YmlLoaderUtil<YmlLoader<Step>>();
-    private static final YmlLoaderUtil<YmlLoader<RulesBehaviour>> rulesBehaviourLoaderUtil = new YmlLoaderUtil<YmlLoader<RulesBehaviour>>();
+    private static final YmlLoaderUtil<YmlLoader<Step>> stepLoaderUtil = new YmlLoaderUtil<>();
+    private static final YmlLoaderUtil<YmlLoader<RulesBehaviour>> rulesBehaviourLoaderUtil = new YmlLoaderUtil<>();
 
     @Override
     public Step load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
@@ -50,13 +50,13 @@ public class DecisionYmlLoader implements YmlLoader<Step> {
     }
 
     private List<Rule> loadRules(Yaml yaml, Set<Object> stepIds, Set<Object> allIds) throws RegurgitatorException {
-        List<Rule> rules = new ArrayList<Rule>();
+        List<Rule> rules = new ArrayList<>();
 
-        List ruleYamls = (List) yaml.get(RULES);
+        List<?> ruleYamls = (List<?>) yaml.get(RULES);
 
         if(ruleYamls != null) {
             for (Object obj : ruleYamls) {
-                Yaml ruleYaml = new Yaml(RULE, (Map) obj);
+                Yaml ruleYaml = new Yaml(RULE, (Map<?, ?>) obj);
                 rules.add(loadRule(ruleYaml, stepIds, allIds));
             }
         }
@@ -65,12 +65,12 @@ public class DecisionYmlLoader implements YmlLoader<Step> {
     }
 
     private List<Step> loadSteps(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
-        List<Step> steps = new ArrayList<Step>();
-        List stepYamls = (List) yaml.get(STEPS);
+        List<Step> steps = new ArrayList<>();
+        List<?> stepYamls = (List<?>) yaml.get(STEPS);
 
         if(stepYamls != null) {
             for (Object obj : stepYamls) {
-                Yaml stepYaml = new Yaml((Map) obj);
+                Yaml stepYaml = new Yaml((Map<?, ?>) obj);
                 steps.add(stepLoaderUtil.deriveLoader(stepYaml).load(stepYaml, allIds));
             }
         }
@@ -79,7 +79,7 @@ public class DecisionYmlLoader implements YmlLoader<Step> {
     }
 
     private Set<Object> stepIds(List<Step> steps) {
-        Set<Object> stepIds = new HashSet<Object>(steps.size());
+        Set<Object> stepIds = new HashSet<>(steps.size());
 
         for (Step step : steps) {
             stepIds.add(step.getId());

@@ -14,7 +14,7 @@ public class SizeProcessorYmlLoader implements YmlLoader<SizeProcessor> {
     private static final Log log = getLog(SizeProcessorYmlLoader.class);
 
     @Override
-    public SizeProcessor load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
+    public SizeProcessor load(Yaml yaml, Set<Object> allIds) {
         boolean lastIndex = loadOptionalBool(yaml, AS_INDEX);
         log.debug("Loaded size processor");
         return new SizeProcessor(lastIndex);

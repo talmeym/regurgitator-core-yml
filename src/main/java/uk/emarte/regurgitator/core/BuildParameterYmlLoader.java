@@ -15,7 +15,7 @@ import static uk.emarte.regurgitator.core.YmlConfigUtil.*;
 
 public class BuildParameterYmlLoader implements YmlLoader<Step> {
     private static final Log log = getLog(BuildParameterYmlLoader.class);
-    private static final YmlLoaderUtil<YmlLoader<ValueBuilder>> builderLoaderUtil = new YmlLoaderUtil<YmlLoader<ValueBuilder>>();
+    private static final YmlLoaderUtil<YmlLoader<ValueBuilder>> builderLoaderUtil = new YmlLoaderUtil<>();
 
     @Override
     public Step load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {

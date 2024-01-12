@@ -17,11 +17,11 @@ import static uk.emarte.regurgitator.core.YmlConfigUtil.loadOptionalStr;
 
 public class SequenceYmlLoader implements YmlLoader<Sequence> {
     private static final Log log = getLog(SequenceYmlLoader.class);
-    private static final YmlLoaderUtil<YmlLoader<Step>> loaderUtil = new YmlLoaderUtil<YmlLoader<Step>>();
+    private static final YmlLoaderUtil<YmlLoader<Step>> loaderUtil = new YmlLoaderUtil<>();
 
     @Override
     public Sequence load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
-        List<Step> steps = new ArrayList<Step>();
+        List<Step> steps = new ArrayList<>();
         List<?> stepYamls = (List<?>) yaml.get(STEPS);
 
         if(stepYamls != null) {

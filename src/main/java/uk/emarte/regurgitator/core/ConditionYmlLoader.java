@@ -17,7 +17,7 @@ import static uk.emarte.regurgitator.core.YmlConfigUtil.*;
 
 class ConditionYmlLoader {
     private static final Log log = getLog(ConditionYmlLoader.class);
-    private static final YmlLoaderUtil<YmlLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new YmlLoaderUtil<YmlLoader<ConditionBehaviour>>();
+    private static final YmlLoaderUtil<YmlLoader<ConditionBehaviour>> conditionBehaviourLoaderUtil = new YmlLoaderUtil<>();
 
     static Condition load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
         String source = loadMandatoryStr(yaml, SOURCE);
@@ -51,7 +51,7 @@ class ConditionYmlLoader {
     private static Entry<?, ?> getBehaviourAttribute(Yaml yaml) throws RegurgitatorException {
         boolean behaviourFieldFound = yaml.contains(BEHAVIOUR);
         Set<Entry<?, ?>> entries = yaml.getValueMap().entrySet();
-        Set<Entry<?, ?>> behavioursFound = new HashSet<Entry<?, ?>>();
+        Set<Entry<?, ?>> behavioursFound = new HashSet<>();
 
         for(Entry<?, ?> entry: entries) {
             if(entry.getValue() instanceof String) {

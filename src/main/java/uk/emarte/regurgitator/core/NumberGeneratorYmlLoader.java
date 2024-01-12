@@ -14,7 +14,7 @@ public class NumberGeneratorYmlLoader implements YmlLoader<ValueGenerator> {
     private static final Log log = getLog(NumberGeneratorYmlLoader.class);
 
     @Override
-    public NumberGenerator load(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
+    public NumberGenerator load(Yaml yaml, Set<Object> allIds) {
         log.debug("Loaded number generator");
         return new NumberGenerator(loadOptionalInt(yaml, MAX));
     }

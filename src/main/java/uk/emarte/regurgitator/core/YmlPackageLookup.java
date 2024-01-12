@@ -9,15 +9,15 @@ import java.util.ServiceLoader;
 class YmlPackageLookup {
     private static final ServiceLoader<YmlPackageMap> PACKAGE_MAPS = ServiceLoader.load(YmlPackageMap.class);
 
-    static String getPackageForType(String type) throws RegurgitatorException {
+    static String getPackageForKind(String kind) throws RegurgitatorException {
         for(YmlPackageMap set: PACKAGE_MAPS) {
-            String pakkage = set.getPackageForKind(type);
+            String pakkage = set.getPackageForKind(kind);
 
             if(pakkage != null) {
                 return pakkage;
             }
         }
 
-        throw new RegurgitatorException("Package not found for type: " + type);
+        throw new RegurgitatorException("Package not found for kind: " + kind);
     }
 }
