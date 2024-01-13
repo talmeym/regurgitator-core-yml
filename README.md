@@ -22,7 +22,7 @@ sequence:
 
 ### step ids
 
-all steps in a regurgitator configuration can be given an ``id`` property. ids can be used for identifying which step to run next (see [decision](https://github.com/talmeym/regurgitator-core-yml#decision), below) and therefore must be unique. if no id property is given for a step, a system-generated one will be assigned to it at load time, combining the type of the step with a 4 digit random number, eg: ``create-parameter-6557``
+all steps in a regurgitator configuration can be given an ``id`` property. ids can be used for identifying which step to run next (see [decision](https://talmeym.github.io/regurgitator-core-yml#decision), below) and therefore must be unique. if no id property is given for a step, a system-generated one will be assigned to it at load time, combining the type of the step with a 4 digit random number, eg: ``create-parameter-6557``
 
 ## core steps in yml
 
@@ -172,7 +172,7 @@ there are 4 core conflict policies available:
 
 when using ``NUMBER`` and ``DECIMAL`` parameter types, ``CONCAT`` and ``REMOVE`` conflict policies behave as addition and subtraction operators. when collection-based parameter types are used, ``CONCAT`` and ``REMOVE`` behaves like java collection ``add-all`` and ``remove-all`` operations, respectively.
 
-find more details on parameter types in [regurgitator-core](https://github.com/talmeym/regurgitator-core#parameter-types).
+find more details on parameter types in [regurgitator-core](https://talmeym.github.io/regurgitator-core#parameter-types).
 
 to create a parameter in a particular parameter context, simple prepend your parameters name with the desired context, separated by a colon, eg: 
 
@@ -267,7 +267,7 @@ create-response:
 ```
 a create-response can have the same value sources as create-parameter, ``source``, ``value``, or ``file``. 
 
-regurgitator can be configured to return as many responses as is desired, but that may be incompatible with some single request / response usages, such as over [http](https://github.com/talmeym/regurgitator-extensions-web#regurgitator-over-http).
+regurgitator can be configured to return as many responses as is desired, but that may be incompatible with some single request / response usages, such as over [http](https://talmeym.github.io/regurgitator-extensions-web#regurgitator-over-http).
 
 ### identify-session
 
@@ -362,7 +362,7 @@ generate-parameter:
  generator: number-generator
 ```
 
-more info on ``value-generator`` [here](https://github.com/talmeym/regurgitator-core-yml#generate-parameter).
+more info on ``value-generator`` [here](https://talmeym.github.io/regurgitator-core-yml#generate-parameter).
 
 ### uuid-generator
 
@@ -383,7 +383,7 @@ generate-parameter:
  generator: uuid-generator
 ```
 
-more info on ``value-generator`` [here](https://github.com/talmeym/regurgitator-core-yml#generate-parameter).
+more info on ``value-generator`` [here](https://talmeym.github.io/regurgitator-core-yml#generate-parameter).
 
 ### extract-processor
 
@@ -399,7 +399,7 @@ create-parameter:
    index: 1
 ```
 
-more info on ``value-processor`` [here](https://github.com/talmeym/regurgitator-core-yml#value-processors).
+more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
 
 ### substitute-processor
 
@@ -415,7 +415,7 @@ create-parameter:
   replacement: "very "
 ```
 
-more info on ``value-processor`` [here](https://github.com/talmeym/regurgitator-core-yml#value-processors).
+more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
 
 ### index-processor
 
@@ -440,7 +440,7 @@ create-parameter:
 
 the index to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the index from a parameter.
 
-more info on ``value-processor`` [here](https://github.com/talmeym/regurgitator-core-yml#value-processors).
+more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
 
 ### index-of-processor
 
@@ -465,7 +465,7 @@ create-parameter:
 
 the data value to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the data value from a parameter.
 
-more info on ``value-processor`` [here](https://github.com/talmeym/regurgitator-core-yml#value-processors).
+more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
 
 ### size-processor
 
@@ -505,4 +505,4 @@ create-parameter:
    as-index: true
 ```
 
-more info on ``value-processor`` [here](https://github.com/talmeym/regurgitator-core-yml#value-processors).
+more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
