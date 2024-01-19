@@ -49,7 +49,7 @@ public class YmlConfigUtil {
     }
 
     public static Object loadMandatory(Yaml yaml, String key) throws RegurgitatorException {
-        if (yaml.contains(key)) {
+        if (yaml.contains(key)&& yaml.get(key) != null) {
             return yaml.get(key);
         }
 
@@ -68,8 +68,8 @@ public class YmlConfigUtil {
 
     public static List<ValueProcessor> loadOptionalValueProcessors(Yaml yaml, Set<Object> allIds) throws RegurgitatorException {
         List<ValueProcessor> processors = new ArrayList<>();
-        Object processorObj = yaml.get(PROCESSOR);
-        Object processorsObj = yaml.get(PROCESSORS);
+        Object processorObj = loadOptional(yaml, PROCESSOR);
+        Object processorsObj = loadOptional(yaml, PROCESSORS);
 
         if(processorObj != null && processorsObj != null) {
             throw new RegurgitatorException("Only one of 'processor' or 'processors' is allowed");

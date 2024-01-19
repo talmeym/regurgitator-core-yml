@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.emarte.regurgitator</groupId>
     <artifactId>regurgitator-core-yml</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <packaging>jar</packaging>
     <name>Regurgitator Core Yml</name>
 
@@ -112,13 +112,13 @@
         <dependency>
             <groupId>uk.emarte.regurgitator</groupId>
             <artifactId>regurgitator-core-config</artifactId>
-            <version>0.1.1</version>
+            <version>[0.1.1,0.2.0)</version>
         </dependency>
 
         <dependency>
             <groupId>com.esotericsoftware.yamlbeans</groupId>
             <artifactId>yamlbeans</artifactId>
-            <version>1.08</version>
+            <version>1.17</version>
         </dependency>
 
         <dependency>
