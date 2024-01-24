@@ -87,6 +87,8 @@ decision:
 
 upon execution a decision evaluates all of its rules to see which pass. it then uses its ``rules behaviour`` to determines which of the passed rules should have their corresponding step executed. the default rules behaviour is ``first-match`` whereby the first rule that passes provides the step to be executed.
 
+#### rules behaviours
+
 there are 3 core rules behaviours:
 
 | value | behaviour |
@@ -129,6 +131,8 @@ rules:
 ```
 
 which allows some condition behaviours to have properties besides the operand (in the example above, the namespaces of the xpath specified). if behaviour is specified in a behaviour property, the operand is specified in the value property.
+
+#### condition behaviours
 
 there are 6 core condition behaviours:
 
