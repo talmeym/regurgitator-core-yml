@@ -425,9 +425,9 @@ create-parameter:
 
 more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
 
-### index-processor
+### at-index-processor
 
-an index-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the data value at a given index, starting from zero.
+an at-index-processor manipulates collection parameter values, such as ``LIST_OF_STRING``, returning the data value at a given index, starting from zero.
 
 ```yml
 create-parameter:
@@ -442,8 +442,8 @@ create-parameter:
  type: STRING
  source: data
  processor:
-  index-processor:
-   index: 2
+  at-index-processor:
+   value: 2
 ```
 
 the index to be looked up can be specified using either a ``value`` property, or ``source`` to retrieve the index from a parameter.
