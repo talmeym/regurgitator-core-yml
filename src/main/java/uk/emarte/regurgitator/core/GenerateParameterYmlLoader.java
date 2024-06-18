@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static uk.emarte.regurgitator.core.CoreConfigConstants.GENERATOR;
+import static uk.emarte.regurgitator.core.CoreConfigConstants.OPTIONAL;
 import static uk.emarte.regurgitator.core.EntityLookup.valueGenerator;
 import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.core.StringType.stringify;
@@ -34,6 +35,6 @@ public class GenerateParameterYmlLoader implements YmlLoader<Step> {
 
         String id = loadId(yaml, allIds);
         log.debug("Loaded generate parameter '{}'", id);
-        return new GenerateParameter(id, loadPrototype(yaml), loadContext(yaml), generator, processors);
+        return new GenerateParameter(id, loadPrototype(yaml), loadContext(yaml), generator, processors, loadOptionalBool(yaml, OPTIONAL));
     }
 }

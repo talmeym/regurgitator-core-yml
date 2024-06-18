@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static uk.emarte.regurgitator.core.CoreConfigConstants.BUILDER;
+import static uk.emarte.regurgitator.core.CoreConfigConstants.OPTIONAL;
 import static uk.emarte.regurgitator.core.EntityLookup.valueBuilder;
 import static uk.emarte.regurgitator.core.Log.getLog;
 import static uk.emarte.regurgitator.core.YmlConfigUtil.*;
@@ -33,6 +34,6 @@ public class BuildParameterYmlLoader implements YmlLoader<Step> {
 
         String id = loadId(yaml, allIds);
         log.debug("Loaded build parameter '{}'", id);
-        return new BuildParameter(id, loadPrototype(yaml), loadContext(yaml), builder, processors);
+        return new BuildParameter(id, loadPrototype(yaml), loadContext(yaml), builder, processors, loadOptionalBool(yaml, OPTIONAL));
     }
 }
