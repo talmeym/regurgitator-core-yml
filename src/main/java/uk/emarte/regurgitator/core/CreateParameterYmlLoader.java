@@ -20,6 +20,6 @@ public class CreateParameterYmlLoader extends CreateParameterLoader implements Y
         String value = loadOptionalStr(yaml, VALUE);
         String file = loadOptionalStr(yaml, FILE);
         List<ValueProcessor> processors = loadOptionalValueProcessors(yaml, allIds);
-        return buildCreateParameter(loadId(yaml, allIds), loadPrototype(yaml), loadContext(yaml), source, value, file, processors, log);
+        return buildCreateParameter(loadId(yaml, allIds), loadPrototype(yaml), loadContext(yaml), source, value, file, processors, loadOptionalBool(yaml, OPTIONAL), log);
     }
 }
