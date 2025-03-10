@@ -4,8 +4,6 @@ regurgitator is a lightweight, modular, extendable java framework that you confi
 
 start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitator-all#regurgitator)
 
-[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-yml/0.1.3/) 
-
 ## yml configuration of regurgitator
 
 below is an example of a yml configuration file for regurgitator:
@@ -514,3 +512,5 @@ create-parameter:
 ```
 
 more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
+
+[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-yml/0.1.4/){:target="_blank"}
