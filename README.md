@@ -513,4 +513,6 @@ create-parameter:
 
 more info on ``value-processor`` [here](https://talmeym.github.io/regurgitator-core-yml#value-processors).
 
-[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-yml/0.1.4/){:target="_blank"}
+---
+
+api docs: [``0.1.4``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-yml/0.1.4/){:target="_blank"} [``0.1.3``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-yml/0.1.3/){:target="_blank"} [``0.1.2``](https://regurgitator.emarte.uk/apidocs/regurgitator-core-yml/0.1.2/){:target="_blank"}
